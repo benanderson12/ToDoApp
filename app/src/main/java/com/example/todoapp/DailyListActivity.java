@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -41,5 +43,10 @@ public class DailyListActivity extends AppCompatActivity {
 
             builder.show();
         });
+    }
+
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, LoginToDailyReport.class);
+        startActivity(intent);
     }
 }
