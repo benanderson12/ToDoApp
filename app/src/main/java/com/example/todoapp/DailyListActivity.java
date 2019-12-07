@@ -7,7 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -54,6 +56,29 @@ public class DailyListActivity extends AppCompatActivity {
             });
 
             builder.show();
+        });
+
+        // Handler for ListView items
+        ListView todoList = findViewById(R.id.ToDoList);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        todoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String entry = todoList.getItemAtPosition(position).toString();
+                        databaseHelper.deleteEntry(entry);
+                        updateList();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) { dialog.cancel(); }
+                });
+
+                builder.show();
+            }
         });
     }
 

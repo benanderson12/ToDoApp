@@ -35,4 +35,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_NAME;
         return db.rawQuery(query, null);
     }
+    public void deleteEntry(String entry) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        entry = "'" + entry + "'";
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = " + entry + ";";
+        db.execSQL(query);
+    }
 }
