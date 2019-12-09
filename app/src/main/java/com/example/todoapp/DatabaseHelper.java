@@ -7,11 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String TABLE_NAME = "ToDoList";
+    private String TABLE_NAME;
     private static final String COL1 = "task";
 
-    public DatabaseHelper(Context context) {
-        super(context, TABLE_NAME, null, 1);
+    public DatabaseHelper(Context context, String setName) {
+        super(context, setName, null, 1);
+        TABLE_NAME = setName;
     }
 
     @Override

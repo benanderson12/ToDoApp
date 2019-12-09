@@ -28,7 +28,7 @@ public class DailyListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_list);
-        databaseHelper = new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this, "dailyList");
         updateList();
 
         // Handler for AddItem button
