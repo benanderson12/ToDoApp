@@ -53,7 +53,7 @@ public class DisplayRecord extends AppCompatActivity {
         if (count >= 5) {
             Toast.makeText(getApplicationContext(), "Great! You made more than " +
                     count + " comments!", Toast.LENGTH_LONG).show();
-            label.setText("Great! Keep making CS diary!");
+            label.setText("Great! Keep making CS diary! Geoff is with you!");
         }
         if (count < 5) {
             Toast.makeText(getApplicationContext(), "Keep getting more comments! ", Toast.LENGTH_LONG).show();
