@@ -8,8 +8,8 @@
 
     <ListView
         android:id="@+id/ToDoList"
-        android:layout_width="262dp"
-        android:layout_height="485dp"
+        android:layout_width="264dp"
+        android:layout_height="431dp"
         android:layout_marginStart="74dp"
         android:layout_marginLeft="74dp"
         android:layout_marginTop="88dp"
@@ -57,4 +57,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ToDoList" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="207dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="544dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:text="Click the item if you have completed that task!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
