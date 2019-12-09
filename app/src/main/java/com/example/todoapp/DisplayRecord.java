@@ -15,6 +15,8 @@ public class DisplayRecord extends AppCompatActivity {
 
         int record = 0;
 
+
+
         if (record < 5) {
             ImageView image = (ImageView)findViewById(R.id.imageGeoff);
             image.setVisibility(View.INVISIBLE);
