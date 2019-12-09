@@ -24,12 +24,12 @@ public class DisplayRecord extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this, table);
         updateList();
 
-        //int record = 0;
+        int record = 0;
 
-        //if (record < 5) {
+        if (record < 5) {
             //ImageView image = (ImageView)findViewById(R.id.imageGeoff);
             //image.setVisibility(View.INVISIBLE);
-        //}
+        }
 
 
     }
