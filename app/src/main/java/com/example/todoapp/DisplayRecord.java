@@ -58,7 +58,7 @@ public class DisplayRecord extends AppCompatActivity {
         if (count < 5) {
             Toast.makeText(getApplicationContext(), "Keep getting more comments! ", Toast.LENGTH_LONG).show();
         }
-        if (count <= 5) {
+        if (count < 5) {
             ImageView image = (ImageView)findViewById(R.id.imageGeoff);
             image.setVisibility(View.INVISIBLE);
         }
