@@ -9,15 +9,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private String TABLE_NAME;
     private static final String COL1 = "task";
+    private static final String COL2 = "completed";
 
     public DatabaseHelper(Context context, String setName) {
-        super(context, setName, null, 1);
+        super(context, setName, null, 2);
         TABLE_NAME = setName;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_NAME + " (" + COL1 + " TEXT)";
+        String createTable = "CREATE TABLE " + TABLE_NAME + " (" + COL1 + " TEXT, " + COL2 + " INTEGER)";
         db.execSQL(createTable);
     }
     @Override
@@ -29,7 +30,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1, task);
+        contentValues.put(COL2, 0);
         db.insert(TABLE_NAME, null, contentValues);
+    }
+    public void completed(String task) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        task = "'" + task + "'";
+        String query = "UPDATE " + TABLE_NAME + " SET " + COL2 + " = 1 WHERE " + COL1 + " = " + task + ";";
+        db.execSQL(query);
     }
     public Cursor getData() {
         SQLiteDatabase db = this.getWritableDatabase();

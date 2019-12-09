@@ -64,17 +64,21 @@ public class DailyListActivity extends AppCompatActivity {
         todoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Completed", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String entry = todoList.getItemAtPosition(position).toString();
+                        databaseHelper.completed(entry);
+                        updateList();
+                    }
+                });
+                builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String entry = todoList.getItemAtPosition(position).toString();
                         databaseHelper.deleteEntry(entry);
                         updateList();
                     }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) { dialog.cancel(); }
                 });
 
                 builder.show();
@@ -83,7 +87,8 @@ public class DailyListActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, LoginToDailyReport.class);
+        Intent intent = new Intent(this, DisplayRecord.class);
+        intent.putExtra("tableName", "dailyList");
         startActivity(intent);
     }
 
@@ -94,7 +99,10 @@ public class DailyListActivity extends AppCompatActivity {
         Cursor data = databaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();
         while (data.moveToNext()) {
-            listData.add(data.getString(0));
+            System.out.println(data.getInt(1));
+            if (data.getInt(1) == 0) {
+                listData.add(data.getString(0));
+            }
         }
         ListView activities = findViewById(R.id.ToDoList);
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
