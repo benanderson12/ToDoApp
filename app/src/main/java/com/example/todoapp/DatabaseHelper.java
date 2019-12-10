@@ -50,4 +50,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = " + entry + ";";
         db.execSQL(query);
     }
+    public void clearCompleted() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL2 + " = 1;";
+        db.execSQL(query);
+    }
 }

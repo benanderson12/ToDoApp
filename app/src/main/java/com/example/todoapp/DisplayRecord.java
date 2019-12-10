@@ -29,9 +29,8 @@ public class DisplayRecord extends AppCompatActivity {
 
         //Button for clear the listView
         Button button = findViewById(R.id.button);
-        ListView listView = findViewById(R.id.ToDoList);
         button.setOnClickListener(v -> {
-            clearListView(listView);
+            clearListView();
         });
     }
 
@@ -59,7 +58,7 @@ public class DisplayRecord extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Keep getting more comments! ", Toast.LENGTH_LONG).show();
         }
         if (count < 5) {
-            ImageView image = (ImageView)findViewById(R.id.imageGeoff);
+            ImageView image = findViewById(R.id.imageGeoff);
             image.setVisibility(View.INVISIBLE);
         }
     }
@@ -68,7 +67,8 @@ public class DisplayRecord extends AppCompatActivity {
      * Clear the ListView.
      * @param listView current listView
      */
-    public void clearListView(ListView listView) {
-        listView.setAdapter(null);
+    public void clearListView() {
+        databaseHelper.clearCompleted();
+        updateList();
     }
 }

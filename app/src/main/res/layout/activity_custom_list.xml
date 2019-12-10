@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/AddItem"
+        android:layout_width="72dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="323dp"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="33dp"
+        android:alpha=".5"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="#669900"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@android:color/holo_green_dark" />
+
     <ListView
         android:id="@+id/ToDoList"
         android:layout_width="264dp"
@@ -22,25 +42,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </ListView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/AddItem"
-        android:layout_width="72dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="323dp"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="33dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:backgroundTint="#669900"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ToDoList"
-        app:srcCompat="@android:color/holo_green_dark" />
 
     <TextView
         android:id="@+id/textView2"
